@@ -1,4 +1,5 @@
 #include "WPILib.h"
+#include "ramgrab.h"
 
 /**
  * This "BuiltinDefaultCode" provides the "default code" functionality as used in the "Benchtop Test."
@@ -52,8 +53,9 @@ class BuiltinDefaultCode : public IterativeRobot
 
 public:
 
+    RamGrab* m_ramgrab;
 	BuiltinDefaultCode()	{
-
+        m_ramgrab = new RamGrab;
 	}
 
 
@@ -88,7 +90,7 @@ public:
 
 
 	void TeleopPeriodic() {
-
+        m_ramgrab->Roll(RamGrab::kIn);
 	} // TeleopPeriodic()
 
 /********************************** Miscellaneous Routines *************************************/
